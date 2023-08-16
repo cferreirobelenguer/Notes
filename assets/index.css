@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.header-container {
+    font-family: 'Roboto', sans-serif;
+    font-family: 16px;
+    display: flex;
+    gap: 20px;
+    font-weight: 600;
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: blue;
+}
+
+.header-link {
+    padding-right: 14px;
+    border-right: 1px solid black;
+}
+
+.note-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    gap: 24px;
+    background-color: #fff;
+    padding: 64px 64px 72px 64px;
+    background-image: url('https://i.ibb.co/Kb62HfP/oficina.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+
+}
+p {
+    margin: 0;
+}
+
+.note-notes {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.note-container-item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid black;
+    gap: 16px;
+    padding: 16px;
+    background-color: #fff;
+}
+
+.note-container-title {
+    margin: 0;
+    font-family: 24px;
+}
+
+.note-container-link {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-start
+}
+
+.link {
+    text-decoration: none;
+    background-color: black;
+    padding: 12px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.note-input {
+    padding: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-family: 14px;
+    border-radius: 5px;
+}
+
+.note-form {
+    display: flex;
+    flex-direction: column;
+    gap:14px;
+    justify-content: flex-start;
+}
+
+.footer-container {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 24px 72px 24px;
+    gap: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-content {
+    width: 100%;
+}
+
+.footer-link {
+    color: #fff;
+    padding-right: 14px;
+    border-right: 1px solid white;
+}

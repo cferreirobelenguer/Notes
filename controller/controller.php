@@ -6,7 +6,7 @@ function save($title, $content) {
     //save data notes
     try {
         $pdo = connection();
-        $stmt = $pdo->prepare ("INSERT INTO notes (title, content) VALUES (?, ?, ?)");
+        $stmt = $pdo->prepare ("INSERT INTO notes (title, content) VALUES (?, ?)");
         $stmt->bindParam(1, $title);
         $stmt->bindParam(2, $content);
         $stmt->execute();
@@ -17,13 +17,6 @@ function save($title, $content) {
         die();
     }
 }
-
-// esto iría donde se llave esa función
-//if ($_SERVER["REQUEST_METHOD"] === "POST") {
-//     $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-//     $content = filter_var($_POST['content'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-//     save($title, $content);
-// }  
 
 function getNotes() {
     // get data
@@ -41,6 +34,21 @@ function getNotes() {
         echo "Error: " . $e->getMessage();
         die();
     }
+}
+
+function deleteNote($id) {
+    try {
+        $pdo = connection();
+        $stmt = $pdo->prepare ("DELETE FROM notes WHERE id = ?");
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
+        $stmt->execute();
+        Header("Location: ../index.php");
+
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        die();
+    }
+
 }
 
 ?>
