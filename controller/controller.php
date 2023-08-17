@@ -18,6 +18,40 @@ function save($title, $content) {
     }
 }
 
+function update($title, $content, $id) {
+    //update data notes
+    try {
+        $pdo = connection();
+        $stmt = $pdo->prepare("UPDATE notes SET title=?, content=? WHERE id=?");
+        $stmt->bindParam(1, $title);
+        $stmt->bindParam(2, $content);
+        $stmt->bindParam(3, $id);
+        $stmt->execute();
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        die();
+    }
+}
+
+function getNote($id) {
+    //get only one note with id
+    try {
+        $pdo = connection();
+        $sql = "SELECT * FROM notes WHERE id = ?";
+        $stmt = $pdo->prepare($sql); 
+        
+        $stmt->execute([$id]);
+        $note = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        // close connection
+        $pdo = null;
+        return $note;
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+
 function getNotes() {
     // get data
     try {
@@ -48,7 +82,6 @@ function deleteNote($id) {
         echo "Error: " . $e->getMessage();
         die();
     }
-
 }
 
 ?>

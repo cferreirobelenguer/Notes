@@ -1,12 +1,6 @@
 <?php
     require(__DIR__ . "../../proyectnotes/controller/controller.php");
     $notes = getNotes();
-
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $title = filter_var($_POST['title']);
-        $content = filter_var($_POST['content']);
-        save($title, $content);
-    } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +14,7 @@
     <header>
         <nav class="header-container">
             <a href="./index.php" class="header-link">Home</a>
-            <a href="./views/create.php" class="header-link">Create new note</a>
+            <a href="./views/create.php" class="header-link">Create new</a>
         </nav>
     </header>
     <main class="note-container">
@@ -31,19 +25,12 @@
                     <p><?= $row['title'] ?></p>
                     <p><?= $row['content'] ?></p>
                     <div class="note-container-link">
-                        <a href="" class="link">Update note</a>
-                        <a href="./views/delete.php?id=<?= $row['id'] ?>"  class="link">Delete note</a>
+                        <a href="./views/update.php?id=<?= urlencode($row['id']) ?>"  class="link">Update</a>
+                        <a href="./views/delete.php?id=<?= $row['id'] ?>"  class="link">Delete</a>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
     </main>
-    <footer class="footer-content">
-        <nav class="footer-container">
-            <a href="./index.php" class="footer-link">Home</a>
-            <a href="./views/create.php" class="footer-link">Create new note</a>
-        </nav>
-    </footer>
-    
 </body>
 </html>
