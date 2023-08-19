@@ -5,7 +5,7 @@ Php, css, html, mysql, xamp, apache, phpmyadmin
 
 ## Description
 
-CRUD write, modify, view notes
+CRUD write, modify, delete and view notes
 
 ## My work
 
